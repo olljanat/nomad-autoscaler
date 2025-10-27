@@ -224,6 +224,12 @@ bin/plugins/ibmcloud-ig:
 	@cd ./plugins/builtin/target/ibmcloud-ig && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ../../../../$@
 	@echo "==> Done"
 
+bin/plugins/nutanix:
+	@echo "==> Building $@..."
+	@mkdir -p $$(dirname $@)
+	@cd ./plugins/builtin/target/nutanix && go build -o ../../../../$@
+	@echo "==> Done"
+
 .PHONY: plugins
 plugins: \
 	bin/plugins/nomad-apm \
